@@ -1,0 +1,5 @@
+player:
+  respawn_point:
+    x: 0
+    y: 6
+    z: 0
