@@ -1,7 +1,5 @@
 package tk.bridgersilk.worldcore.listener;
 
-import tk.bridgersilk.worldcore.config.Config;
-import tk.bridgersilk.worldcore.utils.SkinCache;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.GameMode;
@@ -10,6 +8,8 @@ import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.instance.InstanceContainer;
+import tk.bridgersilk.worldcore.config.Config;
+import tk.bridgersilk.worldcore.utils.SkinCache;
 
 public class PlayerSpawnListener {
 
@@ -26,8 +26,8 @@ public class PlayerSpawnListener {
 
             player.setRespawnPoint(new Pos(x, y, z));
             PlayerSkin skin = SkinCache.getByUsername(event.getPlayer().getUsername());
-            player.setSkin(skin);
-            player.setGameMode(GameMode.CREATIVE);
+            player.setSkin(skin); // fix: why does this not work?
+            player.setGameMode(GameMode.SURVIVAL);
         });
     }
 }

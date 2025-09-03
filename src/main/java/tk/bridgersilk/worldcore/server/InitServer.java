@@ -1,12 +1,14 @@
 package tk.bridgersilk.worldcore.server;
 
 import tk.bridgersilk.worldcore.listener.PlayerSpawnListener;
+import tk.bridgersilk.worldcore.commands.GlobalCommands;
 import tk.bridgersilk.worldcore.config.Config;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.instance.LightingChunk;
+import revxrsal.commands.minestom.MinestomLamp;
 import tk.bridgersilk.worldcore.listener.PickupItemListener;
 import tk.bridgersilk.worldcore.listener.PlayerBlockBreakListener;
 
@@ -30,5 +32,9 @@ public class InitServer {
         PlayerSpawnListener.register(instanceContainer);
         PlayerBlockBreakListener.register();
         PickupItemListener.register();
+
+        // register commands
+        var lamp = MinestomLamp.builder().build();
+        lamp.register(new GlobalCommands());
     }
 }
